@@ -12,6 +12,12 @@ body {
   position: relative;
 }
 
+$globalBorder: 4vw;
+
+#content {
+  padding: $globalBorder 22vw $globalBorder $globalBorder;
+}
+
 /**
   Global Link Defaults
   ---------------------------------------------------------------------- */

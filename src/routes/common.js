@@ -1,5 +1,7 @@
+import $ from 'jquery';
+window.$ = window.jQuery = $;
 require('jquery-visible');
-const $ = jQuery;
+require('slick-carousel');
 
 export default {
   init() {
@@ -11,6 +13,9 @@ export default {
   		const $this = $(e.currentTarget);
   		$this.toggleClass('is-active');
   	});
+
+    // MODULE: Hero Image
+    $('#hero-desktop').slick();
   },
   finalize() {
   	// MODULES: Parallax

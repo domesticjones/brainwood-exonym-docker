@@ -1,61 +1,55 @@
 /**
   Global Website Header
   ---------------------------------------------------------------------- */
-.header-top {
-  padding: 1rem 0;
-  z-index: 9999;
+#header-tagline {
+  @include grid(flex-start, center);
+  position: fixed;
   width: 100%;
-  background-color: $white;
+  height: $globalBorder;
+  background-color: $tan;
+  padding: 0 $globalBorder;
+  z-index: 997;
 
-  .wrap {
-    @include grid(space-between, center);
+  h1 {
+    font-size: 0.85rem;
+    font-weight: $font-normal;
+    line-height: 1;
+    padding: 0;
+    margin: 0;
   }
 
-  .nav-social {
-    ul {
-      @include listStripped();
-      @include grid();
-
-      li {
-        margin: 0 0.5em;
-      }
-
-      a,
-      img {
-        display: block;
-        height: 2em;
-      }
-
-      span {
-        display: none;
-      }
-    }
+  &::after {
+    content: '';
+    display: block;
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: $globalBorder;
+    background-color: $tan;
   }
 }
 
-.logo-header {
+#header {
+  background-color: $tan;
+  position: fixed;
+  width: 22vw;
+  height: 100vh;
+  right: 0;
+  top: 0;
+  padding: $globalBorder $globalBorder/2;
+  z-index: 999;
+}
+
+#logo {
   display: block;
-  height: 2.5rem;
-}
-
-#responsive-nav-toggle {
-  display: none;
+  margin: 0 auto;
+  width: 80%;
 }
 
 /**
   Responsive Breakpoints
   ---------------------------------------------------------------------- */
 @media (max-width: 1024px) {
-  .header-top {
-    padding: 1rem;
-  }
 
-  .nav-header,
-  .header-top .nav-social {
-    display: none;
-  }
-
-  #responsive-nav-toggle {
-    display: block;
-  }
 }

@@ -1,8 +1,14 @@
 /**
   Global Website Footer
   ---------------------------------------------------------------------- */
-.nav-footer {
-  @include navMenu(vertical);
+#footer-control {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: $globalBorder;
+  background-color: $tan;
+  z-index: 998;
 }
 
 /**

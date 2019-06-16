@@ -8,10 +8,13 @@
 	</head>
 	<body <?php body_class(); ?> itemscope itemtype="http://schema.org/WebPage">
 		<div id="container">
+			<header id="header-tagline">
+				<h1><?php echo get_bloginfo('description'); ?></h1>
+			</header>
       <header id="header" role="banner" itemscope itemtype="http://schema.org/WPHeader">
         <div class="wrap">
-          <a href="<?php echo get_home_url(); ?>">
-						<img src="<?php ex_logo(); ?>" alt="Logo for <?php ex_brand(); ?>" class="logo-header" />
+          <a href="<?php echo get_home_url(); ?>" id="logo">
+						<img src="<?php ex_logo(); ?>" alt="Logo for <?php ex_brand(); ?>" />
 					</a>
           <nav class="nav-header" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
             <?php wp_nav_menu(array(
@@ -28,11 +31,6 @@
               'fallback_cb' => ''									// fallback function (if there is one)
             )); ?>
           </nav>
-          <?php ex_social(); ?>
-					<a href="#" id="responsive-nav-toggle">
-	          <span class="line"></span>
-	          <span class="line"></span>
-	          <span class="line"></span>
-					</a>
+          <?php ex_contact('phone', true, 'global'); ex_contact('email', true, 'global'); ex_social(); ?>
         </div>
       </header>

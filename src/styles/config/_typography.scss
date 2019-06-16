@@ -1,17 +1,16 @@
 /**
   Font Families & Settings
   ---------------------------------------------------------------------- */
-@import url("https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700,700i,900,900i");
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,700,700i&display=swap');
 
-$font-default: "Lato", sans-serif;
-$font-heading: "Lato", sans-serif;
+$font-default: "Montserrat", sans-serif;
+$font-heading: "Montserrat", sans-serif;
 
 $font-size: 16px;
 
 $font-light: 300;
 $font-normal: 400;
 $font-bold: 700;
-$font-ultra-bold: 900;
 
 $font-italic: italic;
 
@@ -87,31 +86,6 @@ body {
 }
 
 /**
-  Exonym Module Text Sizes
-  ---------------------------------------------------------------------- */
-.module-text-size {
-  &-xsmall {
-    font-size: 0.75em;
-  }
-
-  &-small {
-    font-size: 0.85em;
-  }
-
-  &-normal {
-    font-size: 1em;
-  }
-
-  &-large {
-    font-size: 1.25em;
-  }
-
-  &-xlarge {
-    font-size: 1.5em;
-  }
-}
-
-/**
   Global Website Headings
   ---------------------------------------------------------------------- */
 h1,
@@ -127,13 +101,12 @@ h6 {
   margin: 0;
   line-height: 1;
   font-family: $font-heading;
-
-  @include fontBold();
 }
 
 h1 {
   font-size: 2.5em;
   margin-bottom: 0.5em;
+  font-weight: $font-light;
 }
 
 h2 {
