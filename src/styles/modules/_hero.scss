@@ -1,3 +1,17 @@
+#hero-desktop {
+  position: fixed;
+  width: (100vw - $globalBorder - 22vw);
+  z-index: 0;
+  @include filter-blur(10px);
+  @include transition(all 500ms ease);
+}
+
+#hero.is-active {
+  #hero-desktop {
+    @include filter-blur(0px);
+  }
+}
+
 .hero-image {
   height: calc(100vh - #{$globalBorder * 2});
   background-size: cover;
@@ -5,5 +19,33 @@
 
   img {
     display: none;
+  }
+}
+
+.slick-dots {
+  @include listStripped();
+  @include grid();
+
+  button {
+    display: block;
+    font-size: 0;
+    width: 1.25rem;
+    height: 1.25rem;
+    border-radius: 50%;
+    border: 2px solid $cobalt;
+    background-color: transparentize($cobalt, 0.95);
+    @include transition();
+  }
+
+  li {
+    margin-right: 0.5em;
+
+    &:hover button {
+    background-color: transparentize($cobalt, 0.66);
+    }
+
+    &.slick-active button {
+      background-color: $cobalt;
+    }
   }
 }

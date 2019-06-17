@@ -1,6 +1,7 @@
 /**
   Configuration Settings & Mixins
   ---------------------------------------------------------------------- */
+@import "styles/config/icons";
 @import "styles/config/effects";
 @import "styles/config/animation";
 @import "styles/config/functions";
@@ -9,6 +10,7 @@
 @import "styles/config/colors";
 @import "styles/config/typography";
 @import "styles/config/forms";
+@import "~slick-carousel/slick/slick";
 
 /**
   Global Elements
@@ -24,3 +26,4 @@
   ---------------------------------------------------------------------- */
 @import "styles/modules/wrap";
 @import "styles/modules/hero";
+@import "styles/modules/services";

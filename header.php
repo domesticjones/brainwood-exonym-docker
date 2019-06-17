@@ -12,25 +12,39 @@
 				<h1><?php echo get_bloginfo('description'); ?></h1>
 			</header>
       <header id="header" role="banner" itemscope itemtype="http://schema.org/WPHeader">
-        <div class="wrap">
           <a href="<?php echo get_home_url(); ?>" id="logo">
 						<img src="<?php ex_logo(); ?>" alt="Logo for <?php ex_brand(); ?>" />
 					</a>
           <nav class="nav-header" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
-            <?php wp_nav_menu(array(
-              'container' => false,								// remove nav container
-              'container_class' => '',						// class of container (should you choose to use it)
-              'menu' => __('Header', 'exonym'),	  // nav name
-              'menu_class' => '',									// adding custom nav class
-              'theme_location' => 'header-menu',	// where it's located in the theme
-              'before' => '',											// before the menu
-              'after' => '',											// after the menu
-              'link_before' => '',								// before each link
-              'link_after' => '',									// after each link
-              'depth' => 0,												// limit the depth of the nav
-              'fallback_cb' => ''									// fallback function (if there is one)
-            )); ?>
+						<ul>
+							<?php
+								function ex_current($look) {
+									$navActive = '';
+									if($look == 'home' && is_front_page()) {
+										$navActive = 'is-active';
+									} elseif($look == 'work' && is_archive('work')) {
+		 								$navActive = 'is-active';
+									}
+									return $navActive;
+								}
+							?>
+							<li class="<?php echo ex_current('home'); ?>">
+								<a href="<?php echo get_home_url(); ?>"><span>About</span></a>
+								<ul class="nav-child">
+									<li><a href="<?php echo '#' . exmod_esc(get_field('services_module_meta')['short_name']); ?>"><?php echo get_field('services_module_meta')['short_name']; ?></a></li>
+									<li><a href="#recent">Recent</a></li>
+									<li><a href="<?php echo '#' . exmod_esc(get_field('about_module_meta')['short_name']); ?>"><?php echo get_field('about_module_meta')['short_name']; ?></a></li>
+								</ul>
+							</li>
+							<li class="<?php echo ex_current('work'); ?>">
+								<a href="<?php echo get_post_type_archive_link('work'); ?>">Work</a>
+							</li>
+							<li>
+								<a href="#contact">Get In Touch</a>
+							</li>
+						</ul>
           </nav>
-          <?php ex_contact('phone', true, 'global'); ex_contact('email', true, 'global'); ex_social(); ?>
-        </div>
+					<div class="nav-contact">
+          	<?php ex_contact('phone', true, 'global'); ex_contact('email', true, 'global'); ex_social(); ?>
+					</div>
       </header>

@@ -57,10 +57,10 @@ function cpt_work() {
 		'show_in_admin_bar'     => true,
 		'show_in_nav_menus'     => true,
 		'can_export'            => true,
-		'has_archive'           => 'work',
+		'has_archive'           => true,
 		'exclude_from_search'   => false,
 		'publicly_queryable'    => true,
-		'rewrite'               => false,
+		'rewrite'               => true,
 		'capability_type'       => 'page',
 	);
 	register_post_type( 'work', $args );

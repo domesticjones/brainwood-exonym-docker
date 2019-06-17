@@ -1,3 +1,6 @@
 .module {
-  min-height: calc(100vh - #{$globalBorder * 2};
+  min-height: 100vh;
+  padding: $globalBorder 22vw $globalBorder $globalBorder;
+  @include grid(center, center);
+  position: relative;
 }

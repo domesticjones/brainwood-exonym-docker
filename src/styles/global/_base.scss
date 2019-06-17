@@ -4,19 +4,10 @@
 html,
 body {
   max-width: 100%;
-}
-
-.wrap {
-  margin: 0 auto;
-  max-width: 100%;
-  position: relative;
+  background-color: $brown;
 }
 
 $globalBorder: 4vw;
-
-#content {
-  padding: $globalBorder 22vw $globalBorder $globalBorder;
-}
 
 /**
   Global Link Defaults
@@ -45,21 +36,6 @@ a {
 /**
   Responsive Breakpoints
   ---------------------------------------------------------------------- */
-@media (min-width: 1025px) {
-  .wrap {
-    width: 1150px;
-  }
-}
-
-@media (min-width: 1400px) {
-  .wrap {
-    width: 1400px;
-  }
-}
-
 @media (max-width: 1024px) {
-  .wrap {
-    width: 100%;
-    padding: 0 2rem;
-  }
+
 }

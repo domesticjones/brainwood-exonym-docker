@@ -2,6 +2,7 @@
   Global Website Footer
   ---------------------------------------------------------------------- */
 #footer-control {
+  @include grid(flex-start, center);
   position: fixed;
   left: 0;
   bottom: 0;
@@ -9,6 +10,22 @@
   height: $globalBorder;
   background-color: $tan;
   z-index: 998;
+  padding: 0 $globalBorder;
+
+  &.is-off {
+    button {
+      border-color: $tanDark;
+      background-color: $tanTrans;
+
+      &:hover {
+        background-color: $tanTrans;
+      }
+    }
+
+    li.slick-active button {
+      background-color: $tanDark;
+    }
+  }
 }
 
 /**

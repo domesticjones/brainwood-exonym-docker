@@ -31,20 +31,186 @@
 }
 
 #header {
+  @include grid(space-between, center, column);
   background-color: $tan;
   position: fixed;
   width: 22vw;
   height: 100vh;
   right: 0;
   top: 0;
-  padding: $globalBorder $globalBorder/2;
+  padding: $globalBorder;
   z-index: 999;
+  overflow: hidden;
 }
 
 #logo {
   display: block;
   margin: 0 auto;
-  width: 80%;
+}
+
+@keyframes activeNavLine {
+  0% { transform: scaleX(0); }
+  100% { transform: scaleX(1); }
+}
+
+@keyframes activeNavCircle {
+  0% { transform: scale(0); }
+  100% { transform: scale(1); }
+}
+
+.nav-header {
+  width: 100%;
+
+  ul {
+    @include listStripped();
+    font-size: 1.25em;
+
+    li {
+      margin-bottom: 1.5em;
+      position: relative;
+
+      &.is-active {
+        &::before {
+          content: '';
+          display: block;
+          width: calc(100% + #{$globalBorder * 1.25} + 0.5rem);
+          height: 1px;
+          background-color: $tanDark;
+          position: absolute;
+          top: 0.75em;
+          right: -#{$globalBorder};
+          @include transition();
+          transform-origin: right;
+          transform: scaleX(0);
+          animation: activeNavLine 666ms linear 666ms forwards;
+        }
+
+        &::after {
+          content: '';
+          display: block;
+          position: absolute;
+          top: 0.25em;
+          right: calc(-#{$globalBorder} - 0.5em);
+          width: 1em;
+          height: 1em;
+          background-color: $tanDark;
+          border-radius: 100% 0 0 100%;
+          transform-origin: left;
+          transform: scale(0);
+          animation: activeNavCircle 666ms linear 333ms forwards;
+        }
+
+        ul.nav-child {
+          display: block;
+        }
+
+        & > a::before {
+          content: '';
+          display: block;
+          width: 1em;
+          height: 1em;
+          position: absolute;
+          top: 0.25em;
+          left: -2em;
+          @include icon(arrowLeftDouble);
+          background-size: contain;
+          background-position: center center;
+          background-repeat: no-repeat;
+          transform-origin: right;
+          transform: scale(0);
+          animation: activeNavCircle 133ms linear 1332ms forwards;
+        }
+      }
+    }
+  }
+
+  a {
+    display: block;
+    color: $cobalt;
+    position: relative;
+
+    span {
+      position: relative;
+      display: inline-block;
+      padding: 0 0.5em;
+      background-color: $tan;
+      left: -0.5em;
+    }
+  }
+}
+
+ul.nav-child {
+  font-size: 0.65em;
+  display: none;
+
+  li {
+    display: inline-block;
+    margin-bottom: 0;
+  }
+
+  a {
+    display: block;
+    position: relative;
+    margin: 0;
+    padding: 0.5em;
+    @include transition();
+
+    &.is-active {
+      @include fontBold();
+    }
+  }
+}
+
+.nav-contact {
+  @include grid(space-between, center);
+
+  ul {
+    @include listStripped();
+  }
+
+  a {
+    display: block;
+    @include transition();
+
+    &:hover {
+      opacity: 0.666;
+    }
+
+    span {
+      display: none;
+    }
+
+    img, &:before {
+      margin: 0.5em;
+    }
+  }
+
+  .nav-email a::before,
+  .nav-phone a::before {
+    content: '';
+    display: block;
+    width: 2rem;
+    height: 2rem;
+    background-size: contain;
+  }
+
+  .nav-email a::before {
+    @include icon(email);
+  }
+
+  .nav-phone a::before {
+    @include icon(phone);
+  }
+
+  .nav-social ul {
+    @include grid(center, center);
+
+    img {
+      display: block;
+      height: 2rem;
+      width: auto;
+    }
+  }
 }
 
 /**
