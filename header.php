@@ -37,7 +37,7 @@
 								</ul>
 							</li>
 							<li class="<?php echo ex_current('work'); ?>">
-								<a href="<?php echo get_post_type_archive_link('work'); ?>">Work</a>
+								<a href="<?php echo get_post_type_archive_link('work'); ?>"><span>Work</span></a>
 							</li>
 							<li>
 								<a href="#contact">Get In Touch</a>

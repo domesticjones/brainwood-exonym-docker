@@ -6,9 +6,49 @@
   @include transition(all 500ms ease);
 }
 
-#hero.is-active {
+.module.is-active {
   #hero-desktop {
     @include filter-blur(0px);
+  }
+}
+
+@keyframes animateButton {
+  0% { transform: translateY(-2em); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+#link-down {
+  @include grid(center, center, column);
+  position: absolute;
+  right: 24vw;
+  bottom: 6vw;
+  z-index: 1;
+  padding: 1.5em 2em;
+  font-size: 0.85em;
+  color: $tan;
+  background: linear-gradient(to bottom, $black 0%, transparentize($black, 1) 100%);
+  border-radius: 6px;
+  opacity: 0;
+  transform: translateY(-2em);
+  animation: animateButton 1s linear 2s forwards;
+
+  &:hover {
+    &::after {
+      transform: translateY(0.5em);
+    }
+  }
+
+  &::after {
+    content: '';
+    display: block;
+    width: 2em;
+    height: 1em;
+    @include icon(arrowDown);
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+    margin-top: 0.5em;
+    @include transition();
   }
 }
 

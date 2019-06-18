@@ -5,15 +5,27 @@ function exmod_esc($val) {
   return $output;
 }
 
-function exmod_wrap($pos, $meta = '') {
+function exmod_wrap($pos, $meta = '', $name = true) {
   $output = '';
   if($pos == 'start') {
-    $metaVal = $meta . '_module_meta';
-    $metaId = exmod_esc(get_field($metaVal)['short_name']);
-    $metaName = get_field($metaVal)['name'];
-    $output = '<section id="' . $metaId . '" class="module" data-name="' . $metaName . '" data-hash="' . $metaId . '">';
+    if($name == true) {
+      $metaVal = $meta . '_module_meta';
+      $metaId = exmod_esc(get_field($metaVal)['short_name']);
+      $metaName = get_field($metaVal)['name'];
+    } else {
+      $metaId = exmod_esc($meta);
+      $metaName = $meta;
+    }
+    $output = '<section class="module" data-name="' . $metaName . '" data-hash="' . $metaId . '">';
   } elseif($pos == 'end') {
     $output = '</section>';
   }
+  return $output;
+}
+
+function exmod_heading($meta) {
+  $headPrimary = get_field($meta . '_module_heading')['primary'];
+  $headSecond = get_field($meta . '_module_heading')['secondary'];
+  $output = '<h2 class="module-heading"><span>' . $headPrimary . '</span><i>' . $headSecond . '</i></h2>';
   return $output;
 }
