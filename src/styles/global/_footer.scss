@@ -28,6 +28,101 @@
   }
 }
 
+.contact-data {
+  @include grid(center, stretch);
+  padding: ($globalBorder / 2) $globalBorder 0;
+}
+
+.contact-content {
+  width: 50%;
+  padding: 0 2rem 0 0;
+  font-size: 0.85rem;
+}
+
+.contact-form {
+  width: 50%;
+  padding: 0 0 0 2rem;
+  border-left: 1px solid $tanTrans;
+}
+
+.contact-info {
+  @include grid(flex-start, stretch);
+  margin: 2rem 0;
+
+  &::before {
+    content: '';
+    display: block;
+    width: 3em;
+    min-width: 3rem;
+    max-width: 3rem;
+    border-right: 1px solid $cobalt;
+    margin-right: 1rem;
+    background-position: left center;
+    background-size: 1.5rem auto;
+    background-repeat: no-repeat;
+  }
+
+  a {
+    color: $tanDark;
+    @include transition();
+
+    &:hover {
+      opacity: 0.85;
+    }
+  }
+
+  .name {
+    @include fontBold();
+    color: $tan;
+
+    &::after {
+      content: ': ';
+      display: inline;
+    }
+  }
+
+  ul {
+    @include listStripped();
+  }
+
+  &.contact-phone {
+    margin-top: 0;
+
+    &::before {
+      @include icon(call);
+    }
+  }
+
+  &.contact-email {
+    &::before {
+      @include icon(envelope);
+    }
+  }
+
+  &.contact-social {
+    margin-bottom: 0;
+
+    &::before {
+      @include icon(social);
+    }
+  }
+
+  .nav-social {
+    ul {
+      @include listStripped();
+      @include grid();
+
+      li {
+        margin-right: 1rem;
+      }
+    }
+
+    span {
+      display: none;
+    }
+  }
+}
+
 /**
   Responsive Breakpoints
   ---------------------------------------------------------------------- */

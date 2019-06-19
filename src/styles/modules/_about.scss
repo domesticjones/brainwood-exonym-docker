@@ -1,0 +1,26 @@
+.about-data {
+  @include grid(center, stretch);
+  padding: ($globalBorder / 2) $globalBorder 0 $globalBorder;
+}
+
+.about-photo {
+  width: calc(50% - 2rem);
+  margin-right: 2rem;
+  background-size: cover;
+  background-position: center center;
+
+  img {
+    display: none;
+  }
+}
+
+.about-content {
+  width: calc(50% - 2rem);
+  margin-left: 2rem;
+  font-size: 0.85rem;
+
+  blockquote {
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+}

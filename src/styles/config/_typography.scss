@@ -180,8 +180,24 @@ blockquote {
     font-size: 4em;
     font-weight: bold;
     position: absolute;
-    left: 0.5rem;
+    left: 0.25rem;
     top: 0.25rem;
+    color: $cobalt;
+  }
+
+  q {
+    display: block;
+    color: $tanDark;
+    line-heighT: 1.5;
+    padding-bottom: 0.5em;
+    @include fontItalic();
+  }
+
+  cite {
+    display: block;
+    color: $tanTrans;
+    text-align: right;
+    padding-top: 0.5em;
   }
 
   &::after {
