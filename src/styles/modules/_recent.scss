@@ -1,0 +1,43 @@
+.recent-heading {
+  @include grid(space-between, center);
+
+  span {
+    position: relative;
+    z-index: 1;
+    padding-right: 0.75em;
+    display: block;
+    background-color: $black;
+  }
+
+  a {
+    @include grid(center, center);
+    position: relative;
+    z-index: 1;
+    padding-left: 1em;
+    background-color: $black;
+    font-size: 0.75rem;
+    @include fontBold();
+    color: $tanDark;
+    @include transition();
+
+    &::after {
+      content: '';
+      display: block;
+      width: 1.25em;
+      height: 1.25em;
+      margin-left: 1em;
+      transform: rotate(180deg);
+      background-size: cover;
+      background-position: right center;
+      @include icon(arrowLeftDouble);
+    }
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  &::after {
+    bottom: 0.5em;
+  }
+}

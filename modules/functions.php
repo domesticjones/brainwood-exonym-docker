@@ -23,13 +23,18 @@ function exmod_wrap($pos, $meta = '', $name = true) {
   return $output;
 }
 
-function exmod_heading($meta, $dyn = true, $metaSec = '') {
-  if($dyn == true) {
-    $headPrimary = get_field($meta . '_module_heading')['primary'];
-    $headSecond = get_field($meta . '_module_heading')['secondary'];
+function exmod_heading($meta, $dyn = true, $metaSec = '', $manPrimary = '', $manSecond = '') {
+  if($meta == false) {
+    $headPrimary = $manPrimary;
+    $headSecond = $manSecond;
   } else {
-    $headPrimary = $meta;
-    $headSecond = $metaSec;
+    if($dyn == true) {
+      $headPrimary = get_field($meta . '_module_heading')['primary'];
+      $headSecond = get_field($meta . '_module_heading')['secondary'];
+    } else {
+      $headPrimary = $meta;
+      $headSecond = $metaSec;
+    }
   }
   $output = '<h2 class="module-heading"><span>' . $headPrimary . '</span><i>' . $headSecond . '</i></h2>';
   return $output;

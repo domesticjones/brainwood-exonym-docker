@@ -203,7 +203,8 @@ ul.nav-child {
   }
 
   .nav-social ul {
-    @include grid(center, center);
+    @include listStripped(block);
+    @include grid();
 
     img {
       display: block;
@@ -216,6 +217,30 @@ ul.nav-child {
 /**
   Responsive Breakpoints
   ---------------------------------------------------------------------- */
-@media (max-width: 1024px) {
+@media (max-width: 1640px) {
+  #header {
+    padding: 3vw;
+  }
+}
 
+@media (max-width: 1440px) {
+  #header {
+    padding: 2.5vw;
+
+    ul {
+      font-size: 1em;
+
+      .nav-child a {
+        font-size: 0.75em;
+      }
+    }
+  }
+
+  .nav-contact {
+    @include grid(flex-start, center, row, wrap);
+
+    .nav-social {
+      width: 100%;
+    }
+  }
 }

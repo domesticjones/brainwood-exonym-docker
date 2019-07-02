@@ -18,10 +18,16 @@ export default {
     $('.module:first-of-type').addClass('is-active');
 
     // Scroll Down Button
-    $('#link-down').text($('#link-down').closest('.module').next().data('name'));
-    $('#link-down').click(e => {
+    $('a[href="#down"]').click(e => {
       e.preventDefault();
-      $.scrollify.next();
+      const $this = $(e.currentTarget);
+      const target = $this.data('target');
+      console.log(target);
+      if(target) {
+        $.scrollify.move(target);
+      } else {
+        $.scrollify.next();
+      }
     });
 
     // Contact ScrollTo
@@ -29,6 +35,28 @@ export default {
       e.preventDefault();
       const target = $(e.currentTarget).attr('href');
       $.scrollify.move(target);
+    });
+
+    // Work Galleries
+    $('.work-gallery').each((i,e) => {
+      const $this = $(e);
+      const navTarget = $this.closest('.module').find('.work-nav');
+      $this.slick({
+        fade: true,
+        adaptiveHeight: true,
+        autoplay: true,
+        autoplaySpeed: 10000,
+        swipe: false,
+        appendArrows: navTarget,
+      });
+    });
+    $('.work-slide-photos').slick({
+      arrows: false,
+      dots: true,
+      autoplay: true,
+      autoplaySpeed: 3500,
+      pauseOnHover: false,
+      pauseOnFocus: false,
     });
   },
   finalize() {

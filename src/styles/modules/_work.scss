@@ -1,0 +1,175 @@
+.work-link-down {
+  position: relative;
+}
+
+.work-hero-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  width: 100%;
+
+  h2 {
+    background-color: transparentize($tan, 0.33);
+    width: 100%;
+    padding: 2rem 0;
+    transform: scaleY(0);
+    animation: animateWorkTagIn 300ms linear 1s forwards;
+  }
+}
+
+h1.work-header {
+  font-weight: $font-bold;
+  text-transform: uppercase;
+  font-size: 50vh;
+  color: $blackTrans;
+  line-height: 1;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  opacity: 0;
+  transform: translateX(50%) scale(0.66);
+  transform-origin: right;
+  animation: animateWorkIn 2s cubic-bezier(0.23, 1, 0.32, 1) 500ms forwards;
+}
+
+@keyframes animateWorkIn {
+  0% { transform: translateX(50%) scale(0.66); opacity: 0; }
+  100% { transform: translateX(0) scale(1); opacity: 1; }
+}
+
+@keyframes animateWorkTagIn {
+  0% { transform: scaleY(0); opacity: 0; }
+  100% { transform: scaleY(1); opacity: 1; }
+}
+
+.work-slide {
+  @include grid(flex-start, stretch, row-reverse);
+  padding: 2rem 2rem 0 2rem;
+}
+
+.work-slide-photos {
+  width: 65%;
+
+  .slick-list,
+  .slick-track,
+  .slick-slide {
+    height: 100%;
+
+    div {
+      height: 100%;
+      background-size: cover;
+      background-position: center center;
+    }
+  }
+
+  img {
+    display: none;
+  }
+
+  .slick-dots {
+    position: absolute;
+    right: 1em;
+    bottom: 0.5em;
+
+    button {
+      border-color: $black;
+      height: 1rem;
+      width: 1rem;
+    }
+
+    .slick-active button {
+      background-color: $blackTrans;
+    }
+  }
+}
+
+.work-slide-data {
+  width: 35%;
+  padding: 3rem 2rem 5rem 0;
+
+  h3 {
+    @include fontBold();
+    font-size: 1.25em;
+  }
+
+  blockquote {
+    font-size: 0.85em;
+  }
+}
+
+.work-tasks {
+  @include listStripped();
+  position: relative;
+  font-size: 0.85em;
+
+  li {
+    margin: 0 0 1em 2em;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 1px;
+    height: 100%;
+    left: 1em;
+    top: 0;
+    background-color: $tanTrans;
+  }
+}
+
+.work-nav {
+  position: relative;
+  width: 35%;
+  padding-right: 1rem;
+  transform: translateY(-1.5em);
+
+  button {
+    @include fontBold(false);
+    appearance: none;
+    padding: 0;
+    height: auto;
+    background-color: transparent;
+    color: $tanDark;
+    width: auto;
+    position: absolute;
+    border: none;
+    font-size: 0.75em;
+    @include transition();
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    &::before {
+      content: '';
+      display: block;
+      width: 1em;
+      height: 1em;
+      @include icon(arrowRightTan);
+      background-position: center center;
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+
+    &.slick-prev {
+      @include grid(flex-start, center);
+      display: flex !important;
+
+      &::before {
+        margin-right: 0.5em;
+        transform: rotate(180deg);
+      }
+    }
+
+    &.slick-next {
+      @include grid(flex-start, center, row-reverse);
+      display: flex !important;
+      right: 1rem;
+
+      &::before {
+        margin-left: 0.5em;
+      }
+    }
+  }
+}
