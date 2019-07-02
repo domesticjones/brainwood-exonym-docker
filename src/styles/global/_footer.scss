@@ -43,6 +43,65 @@
   width: 50%;
   padding: 0 0 0 2rem;
   border-left: 1px solid $tanTrans;
+  @include clearfix();
+
+  p {
+    padding: 0;
+  }
+
+  br {
+    display: none;
+  }
+
+  input,
+  textarea {
+    border-radius: 0;
+    background-color: transparent;
+    color: $tanDark;
+    border-bottom: 1px solid $tanTrans;
+    padding: 0.5em 0;
+    height: auto;
+  }
+
+  button {
+    background-color: transparent;
+    width: auto;
+    @include fontBold(false);
+    @include fontItalic();
+    color: $tan;
+    font-size: 0.85em;
+    float: right;
+    @include transition();
+
+    &::after {
+      content: '';
+      display: inline-block;
+      width: 1.75em;
+      height: 1.75em;
+      @include icon(paperAirplane);
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center center;
+      margin-left: 0.75em;
+      transform: translateY(25%);
+    }
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  span.wpcf7-not-valid-tip {
+    font-size: 0.75em;
+    color: $cobalt;
+    display: block;
+    text-align: right;
+    line-height: 1;
+  }
+
+  .wpcf7-response-output {
+    text-align: center;
+  }
 }
 
 .contact-info {
