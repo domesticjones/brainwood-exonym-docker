@@ -17,6 +17,15 @@ export default {
     });
     $('.module:first-of-type').addClass('is-active');
 
+    // MODULE: Hero Image Mobile
+    $('#hero-mobile').slick({
+      arrows: false,
+      fade: true,
+      autoplay: true,
+      autoplaySpeed: 3333,
+      speed: 2333,
+    });
+
     // Scroll Down Button
     $('a[href="#down"]').click(e => {
       e.preventDefault();
@@ -65,29 +74,37 @@ export default {
       const target = $(e.currentTarget).attr('href');
       $.scrollify.move(target);
     });
-    $.scrollify({
-      section: '.module',
-      sectionName: 'hash',
-      easing: 'swing',
-      scrollSpeed: 500,
-      before: () => {
-        $('.module').removeClass('is-active')
-        const current = $.scrollify.current();
-        $(current).addClass('is-active');
-        if(current.data('hash') == 'hero') {
-          $('#footer-control').removeClass('is-off');
-        } else {
-          $('#footer-control').addClass('is-off');
-        }
-        $('#header .nav-child a').each((i,e) => {
-          const target = $(e).attr('href').replace('#','');
-          if(current.data('hash') == target) {
-            $(e).addClass('is-active');
-          } else {
-            $(e).removeClass('is-active');
-          }
+    $(window).on('load resize', () => {
+
+      if($(window).width() <= 960) {
+        $.scrollify.destroy();
+      } else {
+        $.scrollify({
+          section: '.module',
+          sectionName: 'hash',
+          easing: 'swing',
+          scrollSpeed: 500,
+          before: () => {
+            $('.module').removeClass('is-active')
+            const current = $.scrollify.current();
+            $(current).addClass('is-active');
+            if(current.data('hash') == 'hero') {
+              $('#footer-control').removeClass('is-off');
+            } else {
+              $('#footer-control').addClass('is-off');
+            }
+            $('#header .nav-child a').each((i,e) => {
+              const target = $(e).attr('href').replace('#','');
+              if(current.data('hash') == target) {
+                $(e).addClass('is-active');
+              } else {
+                $(e).removeClass('is-active');
+              }
+            });
+          },
         });
-      },
+      }
     });
+
   },
 };

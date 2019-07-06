@@ -68,3 +68,57 @@
     background-color: $tanTrans;
   }
 }
+
+/**
+  Responsive Breakpoints
+  ---------------------------------------------------------------------- */
+@media (max-width: 1440px) {
+  .module-inner {
+    width: calc(100% - 6vw);
+  }
+}
+
+@media (max-width: 1280px) {
+  .module-inner {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 960px) {
+  .module {
+    padding: 0 1rem;
+    min-height: 1px;
+    height: auto !important;
+  }
+
+  .module-inner{
+    width: 100%;
+    padding: 0 0 2rem 0;
+
+    &::before {
+      display: none;
+    }
+  }
+
+  .module-heading {
+    background-color: $tan;
+    padding: 1rem 0;
+    line-height: 1;
+    margin: 0;
+
+    span {
+      color: $cobalt;
+    }
+
+    i {
+      background-color: transparent;
+      color: $black;
+      opacity: 1;
+      padding-top: 0;
+
+      &::after {
+        display: none;
+      }
+    }
+  }
+}

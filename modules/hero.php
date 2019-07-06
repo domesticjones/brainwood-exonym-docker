@@ -23,7 +23,23 @@ echo exmod_wrap('start', 'hero');
     echo '<div class="work-hero-content">';
       echo '<h2>' . $tagline . '</h2>';
     echo '</div>';
+    echo '<a href="#down" id="link-down">' . $button . '</a>';
   }
-  echo '<a href="#down" id="link-down">' . $button . '</a>';
+  if($imagesMobile) {
+    echo '<div id="hero-mobile">';
+    foreach($imagesMobile as $img) {
+      echo '<div>';
+        echo '<div class="hero-image-mobile" style="background-image: url(' . $img['sizes']['large'] . ');">';
+          echo wp_get_attachment_image($img['ID'], 'large');
+        echo '</div>';
+      echo '</div>';
+    }
+    echo '</div>';
+    ?>
+      <div class="hero-mobile-logo">
+        <img src="<?php ex_logo('primary', 'light'); ?>" alt="Logo for Brainwood Creative" />
+      </div>';
+    <?php
+  }
 echo exmod_wrap('end');
 ?>

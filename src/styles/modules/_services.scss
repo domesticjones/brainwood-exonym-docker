@@ -37,3 +37,26 @@
     }
   }
 }
+
+@media (max-width: 960px) {
+  .services-columns {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .services-columns {
+    @include grid(center, center, column);
+
+    li {
+      margin: 0 0 2rem 0;
+      padding: 0;
+
+      &.line {
+        width: 100%;
+        max-width: 100%;
+        height: 1px;
+      }
+    }
+  }
+}

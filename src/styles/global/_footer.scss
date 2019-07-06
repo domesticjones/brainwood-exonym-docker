@@ -185,3 +185,52 @@
 /**
   Responsive Breakpoints
   ---------------------------------------------------------------------- */
+@media (max-width: 1156px) {
+  #footer-control {
+    .slick-dots button {
+      width: 1rem;
+      height: 1rem;
+    }
+  }
+
+  .contact-data {
+    @include grid(center, center, column);
+    padding: 0;
+  }
+
+  .contact-content,
+  .contact-form {
+    width: 100%;
+    padding: 0 0 2rem;
+    border: none;
+  }
+}
+
+@media (max-width: 960px) {
+  #footer-control {
+    height: 1rem;
+
+    .slick-dots {
+      display: none !important;
+    }
+
+    &::after {
+      content: '';
+      display: block;
+      width: 1rem;
+      height: 100vh;
+      background-color: $tan;
+      position: fixed;
+      right: 0;
+      bottom: 0;
+    }
+  }
+
+  .contact-data {
+    padding: 2rem;
+  }
+
+  #footer {
+    margin-top: 85vh;
+  }
+}

@@ -1,5 +1,5 @@
 .about-data {
-  @include grid(center, stretch);
+  @include grid(space-between, stretch);
   padding: ($globalBorder / 2) $globalBorder 0 $globalBorder;
 }
 
@@ -22,5 +22,26 @@
   blockquote {
     margin-bottom: 0;
     padding-bottom: 0;
+  }
+}
+
+/**
+  Responsive Breakpoints
+  ---------------------------------------------------------------------- */
+@media (max-width: 1156px) {
+  .about-data {
+    padding: 0
+  }
+
+  .about-content,
+  .about-photo {
+    width: calc(50% - 1rem);
+    margin: 0;
+  }
+}
+
+@media (max-width: 960px) {
+  .about-data {
+    padding: 2rem;
   }
 }

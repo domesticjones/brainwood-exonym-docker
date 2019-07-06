@@ -41,3 +41,26 @@
     bottom: 0.5em;
   }
 }
+
+@media (max-width: 960px) {
+  .recent-heading {
+    @include grid(center, center, column);
+
+    span {
+      background-color: transparent;
+      padding: 0;
+    }
+
+    a {
+      background-color: transparent;
+      color: $black;
+      margin: 1rem 0 0 0;
+      padding: 0;
+      font-size: 0.45em;
+
+      &::after {
+        display: none;
+      }
+    }
+  }
+}
