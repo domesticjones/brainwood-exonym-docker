@@ -238,3 +238,9 @@ h1.work-header {
     }
   }
 }
+
+@media (max-width: 650px) {
+  .work-gallery {
+    padding: 1rem;
+  }
+}

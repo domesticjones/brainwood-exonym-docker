@@ -22,6 +22,20 @@
 				</div>
 			</footer>
 		</div>
+		<nav id="responsive-nav-toggle">
+			<div class="open is-active">
+				<span class="text">Menu</span>
+				<span class="dots">
+					<i class="dot"></i>
+					<i class="dot"></i>
+					<i class="dot"></i>
+				</span>
+			</div>
+			<div class="close">
+				<span class="text">Close</span>
+			</div>
+		</nav>
+		<div id="responsive-phone"><?php ex_contact('phone', true, 'global'); ?></div>
 		<?php wp_footer(); ?>
 	</body>
 </html>

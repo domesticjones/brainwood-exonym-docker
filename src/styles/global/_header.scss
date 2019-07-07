@@ -192,6 +192,8 @@ ul.nav-child {
     width: 2rem;
     height: 2rem;
     background-size: contain;
+    background-repeat: no-repeat;
+    backgorund-position: center center;
   }
 
   .nav-email a::before {
@@ -258,10 +260,20 @@ ul.nav-child {
 @media (max-width: 960px) {
   #header {
     @include grid(center, center, column);
+    z-index: 1001;
     width: 100%;
-    height: 100vh;
+    height: calc(100% - 8rem);
+    top: 4rem;
     background-color: transparent;
     left: 100%;
+    opacity: 0;
+    @include transition(opacity 0 linear 0);
+
+    &.is-active {
+      left: 0;
+      opacity: 1;
+      @include transition(opacity 666ms ease 333ms);
+    }
   }
 
   .nav-header {
@@ -297,5 +309,17 @@ ul.nav-child {
     &::after {
       width: 1rem;
     }
+  }
+}
+
+@media (max-width: 650px) {
+  .nav-header {
+    width: 50%;
+  }
+
+  .nav-contact ul img,
+  .nav-contact .nav-phone a::before,
+  .nav-contact .nav-email a::before {
+    height: 1.5rem !important;
   }
 }

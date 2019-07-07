@@ -108,9 +108,11 @@
 
     span {
       color: $cobalt;
+      padding-bottom: 0.25em;
     }
 
     i {
+      display: block;
       background-color: transparent;
       color: $black;
       opacity: 1;

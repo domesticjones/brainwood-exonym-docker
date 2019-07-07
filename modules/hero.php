@@ -38,7 +38,7 @@ echo exmod_wrap('start', 'hero');
     ?>
       <div class="hero-mobile-logo">
         <img src="<?php ex_logo('primary', 'light'); ?>" alt="Logo for Brainwood Creative" />
-      </div>';
+      </div>
     <?php
   }
 echo exmod_wrap('end');

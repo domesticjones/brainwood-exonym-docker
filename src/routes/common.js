@@ -5,6 +5,14 @@ require('jquery-scrollify');
 
 export default {
   init() {
+    // NAVIGATION: Mobile Nav Toggle
+    $('#responsive-nav-toggle').click(e => {
+      const $this = $(e.currentTarget);
+      $this.toggleClass('is-active');
+      $('#header').toggleClass('is-active');
+      $this.find('.open, .close').toggleClass('is-active');
+    });
+
     // MODULE: Hero Image
     $('#hero-desktop').slick({
       arrows: false,
@@ -40,10 +48,18 @@ export default {
     });
 
     // Contact ScrollTo
-    $('a[href="#contact"]').click(e => {
+    $('a[href="#contact"]').on('click', e => {
       e.preventDefault();
-      const target = $(e.currentTarget).attr('href');
-      $.scrollify.move(target);
+      if($(window).width() <= 960) {
+        $('#header, #responsive-nav-toggle, #responsive-nav-toggle .close').removeClass('is-active');
+        $('#responsive-nav-toggle .open').addClass('is-active');
+        $('html, body').animate({
+          scrollTop: ($('#footer').offset().top - 50)
+      }, 1500);
+      } else {
+        const target = $(e.currentTarget).attr('href');
+        $.scrollify.move(target);
+      }
     });
 
     // Work Galleries
@@ -75,7 +91,6 @@ export default {
       $.scrollify.move(target);
     });
     $(window).on('load resize', () => {
-
       if($(window).width() <= 960) {
         $.scrollify.destroy();
       } else {

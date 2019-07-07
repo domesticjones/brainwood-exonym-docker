@@ -60,3 +60,14 @@
     }
   }
 }
+
+@media (max-width: 650px) {
+  .services-description {
+    max-width: 100%;
+    padding: 1rem;
+  }
+
+  .services-columns {
+    padding: 1rem;
+  }
+}

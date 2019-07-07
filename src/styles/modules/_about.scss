@@ -30,7 +30,7 @@
   ---------------------------------------------------------------------- */
 @media (max-width: 1156px) {
   .about-data {
-    padding: 0
+    padding: 0;
   }
 
   .about-content,
@@ -43,5 +43,23 @@
 @media (max-width: 960px) {
   .about-data {
     padding: 2rem;
+  }
+}
+
+@media (max-width: 650px) {
+  .about-data {
+    @include grid(center, center, column);
+    padding: 1rem;
+
+    .about-content,
+    .about-photo {
+      width: 100%;
+      margin: 0;
+    }
+
+    .about-photo {
+      height: 56.75vw;
+      margin-bottom: 2rem;
+    }
   }
 }
