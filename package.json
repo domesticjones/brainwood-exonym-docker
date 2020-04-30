@@ -10,7 +10,7 @@
   "author": "jaredpalmer",
   "license": "MIT",
   "dependencies": {
-    "jquery": "^3.2.1",
+    "jquery": "^3.5.0",
     "jquery-scrollify": "^1.0.20",
     "slick-carousel": "^1.8.1"
   },
